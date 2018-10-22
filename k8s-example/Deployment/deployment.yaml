@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: thechiao-deployment
+  labels:
+    app: thechiao-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: thechiao-webapp
+  template:
+    metadata:
+      labels:
+        app: thechiao-webapp
+    spec:
+      containers:
+      - name: k8s
+        image: 072942720637.dkr.ecr.us-east-1.amazonaws.com/thechiao 
+        ports:
+        - containerPort: 8000
